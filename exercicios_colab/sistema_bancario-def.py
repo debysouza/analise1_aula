@@ -40,34 +40,21 @@ while True:
         print('Obrigado!')
         break
 
+def exibir_menu():
+    print('1-Consultar saldo\n2-Depósito\n3-Transferência\n4-Saque\n5-Sair')
 
+def sacar(valor):
+    global saldo
+    saldo -= valor
+    print(f'Saque realizado com sucesso!\nO saldo atual da conta: {saldo}')
 
+def depositar(valor):
+    global saldo
+    saldo += valor
+    print(f'Depósito realizado com sucesso!\nO saldo atual da conta: {saldo}')
 
-
-
-
-    # match op:
-    #     case 1:
-    #         print(f'O saldo da conta 1: {saldo1}')
-    #     case 2:
-    #         valor = float(input('Escolha o valor do depósito: '))
-    #         saldo1 += valor
-    #         print(f'Depósito realizado com sucesso!\nO saldo atual da conta 1: {saldo1}')
-    #     case 3:
-    #         valor = float(input('Escolha o valor da transferência: '))
-    #         saldo1 -= valor
-    #         saldo2 += valor
-    #         print(f'Transferência realizada com sucesso!\nO saldo atual da conta 1: {saldo1}')
-    #     case 4:
-    #         valor = float(input('Escolha o valor do saque: '))
-    #         saldo1 -= valor
-    #         print(f'Saque realizado com sucesso!\nO saldo atual da conta 1: {saldo1}')
-    #     case 5:
-    #         print('Obrigado!')
-    #         break
-
-# Critérios de diferença entre if/else e match/case
-## Compatibilidade ampla - if/else
-## Condições complexas - if/else
-## Código mais organizado - match/case
-## Ideal para menus de opções - if/else e match/case
+def transferir(valor):
+    global saldo, destinatario
+    saldo -= valor
+    destinatario += valor
+    print(f'Transferência realizada com sucesso!\nO saldo atual da conta: {saldo}')
