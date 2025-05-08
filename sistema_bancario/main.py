@@ -1,7 +1,17 @@
 from conta import ContaCorrente
 
-conta1 = ContaCorrente('1234-5', 100.0)
-conta2 = ContaCorrente('9876-5', 2000.0)
+contas = {
+    '1234-5': ContaCorrente('132', '1234-5', 100.0),
+    '9876-5': ContaCorrente('111', '9876-5', 2000.0)
+}
+
+def login():
+    num_conta = input('Digite seu número da conta: ')
+    senha = input('Digite sua senha: ')
+
+    conta = contas.get(num_conta)
+    if conta and conta.senha == senha:
+        print(f'Seja bem-vindo(a), {conta.num_conta}!')
 
 def exibir_menu():
     print('1-Consultar saldo\n2-Depósito\n3-Transferência\n4-Saque\n5-Sair')
