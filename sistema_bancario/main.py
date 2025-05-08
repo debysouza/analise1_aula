@@ -12,25 +12,35 @@ def login():
     conta = contas.get(num_conta)
     if conta and conta.senha == senha:
         print(f'Seja bem-vindo(a), {conta.num_conta}!')
+        return conta
+    else:
+        print('Conta e/ou senha inválida.')
+        login()
 
 def exibir_menu():
     print('1-Consultar saldo\n2-Depósito\n3-Transferência\n4-Saque\n5-Sair')
+
+conta_logada = login()
 
 while True:
     exibir_menu()
     op = int(input('Escolha uma opção: '))
 
     if op == 1:
-        conta1.consultar_saldo()
+        conta_logada.consultar_saldo()
     elif op == 2:
         valor = float(input('Escolha o valor do depósito: '))
-        conta1.depositar(valor)
+        conta_logada.depositar(valor)
     elif op == 3:
         valor = float(input('Escolha o valor da transferência: '))
-        conta1.transferir(conta2, valor)
+        num_conta_destino = input('Digite a conta do destinatário: ')
+        if num_conta_destino in contas and num_conta_destino != conta_logada.num_conta:
+            conta_logada.transferir(contas[num_conta_destino], valor)
+        else:
+            print('Conta destino não encontrada.')
     elif op == 4:
         valor = float(input('Escolha o valor do saque: '))
-        conta1.sacar(valor)
+        conta_logada.sacar(valor)
     elif op == 5:
         print('Obrigado!')
         break
