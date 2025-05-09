@@ -36,14 +36,44 @@ print(estados_dict) # {'SP': 'São Paulo', 'RJ': 'RioJaneiro', 'MG': 'Minas Gera
 del estados_dict['MG']
 
 #1- Armazene 5 frutas nas 4 estruturas.
-#- Array
-lista = []
+#- Lista
+valores = []
 #- estrutura de repetição
+for i in range(5):
+    valor = input(f'Digite o {i+1}º item: ')
+    valores.append(valor)
 #- armazenamento (lista, tupla, set, dict)
+lista2 = list(valores)
+tupla2 = tuple(valores)
+conjunto2 = set(valores)
+#dicionario = dict(valores) # ERRO - Dicionário precisa de dois elementos chave/valor
+dicionario2 = {j: valor for j, valor in enumerate(valores)}
 #- print
+print('Lista: ', lista2)
+print('Tupla: ', tupla2)
+print('Conjunto: ', conjunto2)
+#print('Dicionario: ', dicionario)
+print('Dicionario 2: ', dicionario2)
 
-#2- Faça o mesmo que o exrcício anterior, mas com valores randômicos do tipo inteiro.
+#2- Faça o mesmo que o exercício anterior, mas com valores randômicos do tipo inteiro.
 #- faça o import random
+import random
+
+def gerar_dados(qtd, min_val, max_val):
+    return [random.randint(min_val, max_val) for _ in range(qtd)]
+
+print('Lista aleatória:\n')
+dados = gerar_dados(5, 1, 22)
+
+lista3 = list(dados)
+tupla3 = tuple(dados)
+conjunto3 = set(dados)
+dicionario3 = {j: valor for j, valor in enumerate(dados)}
+
+print('Lista: ', lista3)
+print('Tupla: ', tupla3)
+print('Conjunto: ', conjunto3)
+print('Dicionario: ', dicionario3)
 
 ############################### Lista, Tupla, Set, Dicionário
 #-Acesso por índice: Lista, Dicionário, Tupla
@@ -52,13 +82,13 @@ lista = []
 #-Ordenado: Lista, Dicionário, Tupla
 
 #-X
-x = ['maçã', 'banana', 'uva']
+lista4 = ['maçã', 'banana', 'uva']
 
 #-Y
-y =('maçã', 'banana', 'uva')
+tupla4 =('maçã', 'banana', 'uva')
 
 #-W
-w = {'maçã', 'banana', 'uva'}
+conjunto4 = {'maçã', 'banana', 'uva'}
 
 #-Z
-z = {'nome': 'João', 'idade': 30, 'cidade': 'SP'}
+dicionario4 = {'nome': 'João', 'idade': 30, 'cidade': 'SP'}
