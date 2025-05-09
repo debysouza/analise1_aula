@@ -2,7 +2,7 @@ from conta import ContaCorrente
 
 contas = {
     '1234-5': ContaCorrente('132', '1234-5', 100.0),
-    '9876-5': ContaCorrente('111', '9876-5', 2000.0)
+    '9876-5': ContaCorrente('111', '9876-5', 2000.0),
 }
 
 def login():
