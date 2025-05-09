@@ -3,7 +3,7 @@ def calcular_media(nota1, nota2, nota_optativa):
         n1, n2 = sorted([nota1, nota2])
         if nota_optativa > n1:
             n1 = nota_optativa
-    media = (nota1 + nota2) / 2
+    media = (n1 + n2) / 2
     if media >= 6.0:
         situacao = "Aprovado"
     elif media < 3.0:
